@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Friday.MainPage"
+             BackgroundColor="#07111F"
+             Padding="0">
+    <ContentPage.Resources>
+        <Style x:Key="SectionTitle" TargetType="Label">
+            <Setter Property="TextColor" Value="#F3F8FF" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CharacterSpacing" Value="1.4" />
+        </Style>
+        <Style x:Key="MutedText" TargetType="Label">
+            <Setter Property="TextColor" Value="#7D96AD" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="Panel" TargetType="Border">
+            <Setter Property="Background" Value="#0B1A2B" />
+            <Setter Property="Stroke" Value="#18364D" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="StrokeShape">
+                <Setter.Value><RoundRectangle CornerRadius="18" /></Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid Padding="24,28,24,36" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="22">
+            <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8" RowSpacing="4" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="FRIDAY" TextColor="#55D9FF" FontSize="24" FontAttributes="Bold" CharacterSpacing="2" />
+                </VerticalStackLayout>
+                <Button Grid.Column="1" Text="⚙" Clicked="OnSettingsClicked" BackgroundColor="#10283B" BorderColor="#1C526B" BorderWidth="1" TextColor="#BEEBFA" FontSize="17" CornerRadius="16" HeightRequest="38" WidthRequest="42" Padding="0" SemanticProperties.Hint="Configure Friday AI settings" />
+                <Border Grid.Column="2" Background="#0D2B34" Stroke="#176270" StrokeShape="RoundRectangle 16" Padding="11,7">
+                    <HorizontalStackLayout Spacing="7">
+                        <Ellipse WidthRequest="7" HeightRequest="7" Fill="#58E5A4" VerticalOptions="Center" />
+                        <Label Text="ONLINE" TextColor="#8EF2C3" FontAttributes="Bold" FontSize="11" CharacterSpacing="1" />
+                    </HorizontalStackLayout>
+                </Border>
+                <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Personal intelligent assistant" Style="{StaticResource MutedText}" />
+            </Grid>
+
+            <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="20">
+                <Border Style="{StaticResource Panel}" Padding="22">
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="14">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="GOOD EVENING, SIR." TextColor="#55D9FF" FontSize="12" FontAttributes="Bold" CharacterSpacing="1.5" />
+                                <Label x:Name="AssistantResponse" Text="How may I assist you today?" TextColor="#F4F8FE" FontSize="22" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                            <Label x:Name="TimeLabel" Grid.Column="1" Text="--:--" TextColor="#A7C6DD" FontSize="18" FontAttributes="Bold" VerticalOptions="Start" />
+                        </Grid>
+
+                        <Grid Grid.Row="1" HeightRequest="138" HorizontalOptions="Center" WidthRequest="138">
+                            <Ellipse Fill="#0D2D41" Stroke="#164E6E" StrokeThickness="1" />
+                            <Ellipse Margin="13" Fill="#0C4261" Stroke="#1EBBE4" StrokeThickness="1" />
+                            <Ellipse Margin="32" Fill="#1BC8E7" Opacity="0.24" />
+                            <Ellipse Margin="45" Fill="#7CEBFF" Opacity="0.9" />
+                            <Label Text="F" TextColor="#E9FCFF" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Grid>
+
+                        <Border Grid.Row="2" Background="#091522" Stroke="#1A3A50" StrokeShape="RoundRectangle 12" Padding="12,6">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                <Label Text="›_" TextColor="#55D9FF" FontSize="17" FontAttributes="Bold" VerticalOptions="Center" />
+                                <Entry x:Name="CommandEntry" Grid.Column="1" Placeholder="Type a command for Friday..." PlaceholderColor="#627B90" TextColor="#EAF4FA" FontSize="14" ReturnType="Send" Completed="OnCommandSubmitted" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                    <Button x:Name="ListenButton" Grid.Column="0" Text="◉  LISTEN" Clicked="OnListenClicked" BackgroundColor="#116F8E" TextColor="White" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
+                    <Button Grid.Column="1" Text="◌  BRIEF ME" Clicked="OnBriefClicked" BackgroundColor="#10283B" BorderColor="#1C526B" BorderWidth="1" TextColor="#BEEBFA" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
+                    <Button Grid.Column="2" Text="⌁  SYSTEMS" Clicked="OnSystemsClicked" BackgroundColor="#10283B" BorderColor="#1C526B" BorderWidth="1" TextColor="#BEEBFA" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="12">
+                <Label Text="AT A GLANCE" Style="{StaticResource SectionTitle}" />
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="12">
+                    <Border Style="{StaticResource Panel}" Padding="15">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="⚡  POWER CORE" Style="{StaticResource MutedText}" />
+                            <Label Text="98.4%" TextColor="#65E7B2" FontSize="24" FontAttributes="Bold" />
+                            <ProgressBar Progress="0.984" ProgressColor="#54DCA5" BackgroundColor="#173849" HeightRequest="5" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource Panel}" Padding="15">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="◉  NETWORK" Style="{StaticResource MutedText}" />
+                            <Label Text="SECURE" TextColor="#61D9FF" FontSize="24" FontAttributes="Bold" />
+                            <Label Text="All systems nominal" Style="{StaticResource MutedText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="1" Style="{StaticResource Panel}" Padding="15">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="◷  NEXT EVENT" Style="{StaticResource MutedText}" />
+                            <Label Text="No agenda items" TextColor="#F3F8FF" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Your calendar is clear." Style="{StaticResource MutedText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource Panel}" Padding="15">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="◈  ENVIRONMENT" Style="{StaticResource MutedText}" />
+                            <Label x:Name="EnvironmentLabel" Text="24°C  •  Comfortable" TextColor="#F3F8FF" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Workshop conditions stable" Style="{StaticResource MutedText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Border Grid.Row="3" Style="{StaticResource Panel}" Padding="17">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Ellipse WidthRequest="10" HeightRequest="10" Fill="#55D9FF" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="2">
+                        <Label x:Name="ActivityLabel" Text="Friday core initialized" TextColor="#D8EAF5" FontSize="14" />
+                        <Label Text="Local assistant mode — integrations ready" Style="{StaticResource MutedText}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="NOW" TextColor="#56738B" FontSize="10" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>

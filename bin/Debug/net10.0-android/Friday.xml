@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Friday</name>
+    </assembly>
+    <members>
+        <member name="T:Friday.GeminiAssistantService">
+            <summary>Small Gemini REST client kept separate from the UI so it can later be replaced by a backend proxy.</summary>
+        </member>
+        <member name="T:Friday.VoiceCommandService">
+            <summary>Captures one spoken command using the operating system's speech recognizer.</summary>
+        </member>
+        <member name="T:Friday.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

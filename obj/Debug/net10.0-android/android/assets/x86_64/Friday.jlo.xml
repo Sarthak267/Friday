@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc6402751873184570a8" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="Friday.MainActivity, Friday">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc6402751873184570a8" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="Friday.MainApplication, Friday" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="Friday" module-name="Friday.dll">
+    <type assembly-qualified-name="Friday.MainActivity, Friday, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="friday.MainActivity" java-key="crc6402751873184570a8.MainActivity" managed-key="Friday.MainActivity" partial-assembly-qualified-name="Friday.MainActivity, Friday" />
+    <type assembly-qualified-name="Friday.MainApplication, Friday, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="friday.MainApplication" java-key="crc6402751873184570a8.MainApplication" managed-key="Friday.MainApplication" partial-assembly-qualified-name="Friday.MainApplication, Friday" />
+  </acw-types>
+</api>
