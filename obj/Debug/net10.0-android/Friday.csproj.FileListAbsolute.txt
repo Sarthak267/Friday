@@ -2662,3 +2662,13 @@
 /Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/stamp/_GeneratePackageManagerJava.stamp
 /Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/stamp/_ResolveLibraryProjectImports.stamp
 /Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/crc6402751873184570a8/VoiceCommandService_AndroidRecognitionListener.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/Friday.sourcelink.json
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/crc6402751873184570a8/VoiceCommandService_SpeakerInitializationListener.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/res/xml/friday_voice_interaction.xml
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/com/companyname/friday/FridayVoiceInteractionService.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/com/companyname/friday/FridayVoiceInteractionService_SpeakerReadyListener.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/com/companyname/friday/FridayVoiceInteractionService_WakePhraseListener.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/com/companyname/friday/FridayVoiceInteractionSessionService.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/crc6402751873184570a8/FridayVoiceInteractionSession.java
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/res/xml/friday_recognition_service.xml
+/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/android/src/com/companyname/friday/FridayRecognitionService.java

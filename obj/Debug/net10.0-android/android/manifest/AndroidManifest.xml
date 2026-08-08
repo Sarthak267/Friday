@@ -13,6 +13,19 @@
   <permission android:name="com.companyname.friday.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
   <uses-permission android:name="com.companyname.friday.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
   <application android:name="crc6402751873184570a8.MainApplication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/appicon" android:label="Friday" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+    <service android:name="com.companyname.friday.FridayVoiceInteractionService" android:exported="true" android:permission="android.permission.BIND_VOICE_INTERACTION">
+      <meta-data android:name="android.voice_interaction" android:resource="@xml/friday_voice_interaction" />
+      <intent-filter>
+        <action android:name="android.service.voice.VoiceInteractionService" />
+      </intent-filter>
+    </service>
+    <service android:name="com.companyname.friday.FridayVoiceInteractionSessionService" android:exported="true" android:permission="android.permission.BIND_VOICE_INTERACTION" />
+    <service android:name="com.companyname.friday.FridayRecognitionService" android:exported="true" android:permission="android.permission.BIND_SPEECH_RECOGNITION_SERVICE">
+      <meta-data android:name="android.speech" android:resource="@xml/friday_recognition_service" />
+      <intent-filter>
+        <action android:name="android.speech.RecognitionService" />
+      </intent-filter>
+    </service>
     <activity android:name="crc6402751873184570a8.MainActivity" android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:exported="true" android:launchMode="singleTop" android:theme="@style/Maui.SplashTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

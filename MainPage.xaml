@@ -43,7 +43,7 @@
 
             <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="20">
                 <Border Style="{StaticResource Panel}" Padding="22">
-                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="14">
+                    <Grid RowDefinitions="Auto,Auto" RowSpacing="14">
                         <Grid ColumnDefinitions="*,Auto">
                             <VerticalStackLayout Spacing="4">
                                 <Label Text="GOOD EVENING, SIR." TextColor="#55D9FF" FontSize="12" FontAttributes="Bold" CharacterSpacing="1.5" />
@@ -52,28 +52,16 @@
                             <Label x:Name="TimeLabel" Grid.Column="1" Text="--:--" TextColor="#A7C6DD" FontSize="18" FontAttributes="Bold" VerticalOptions="Start" />
                         </Grid>
 
-                        <Grid Grid.Row="1" HeightRequest="138" HorizontalOptions="Center" WidthRequest="138">
+                        <Grid Grid.Row="1" HeightRequest="170" HorizontalOptions="Center" WidthRequest="170">
                             <Ellipse Fill="#0D2D41" Stroke="#164E6E" StrokeThickness="1" />
                             <Ellipse Margin="13" Fill="#0C4261" Stroke="#1EBBE4" StrokeThickness="1" />
                             <Ellipse Margin="32" Fill="#1BC8E7" Opacity="0.24" />
                             <Ellipse Margin="45" Fill="#7CEBFF" Opacity="0.9" />
                             <Label Text="F" TextColor="#E9FCFF" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Button x:Name="FridayOrb" Text="" Clicked="OnFridayOrbClicked" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="85" SemanticProperties.Hint="Talk to Friday" />
                         </Grid>
-
-                        <Border Grid.Row="2" Background="#091522" Stroke="#1A3A50" StrokeShape="RoundRectangle 12" Padding="12,6">
-                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                                <Label Text="›_" TextColor="#55D9FF" FontSize="17" FontAttributes="Bold" VerticalOptions="Center" />
-                                <Entry x:Name="CommandEntry" Grid.Column="1" Placeholder="Type a command for Friday..." PlaceholderColor="#627B90" TextColor="#EAF4FA" FontSize="14" ReturnType="Send" Completed="OnCommandSubmitted" />
-                            </Grid>
-                        </Border>
                     </Grid>
                 </Border>
-
-                <Grid Grid.Row="1" ColumnDefinitions="*,*,*" ColumnSpacing="12">
-                    <Button x:Name="ListenButton" Grid.Column="0" Text="◉  LISTEN" Clicked="OnListenClicked" BackgroundColor="#116F8E" TextColor="White" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
-                    <Button Grid.Column="1" Text="◌  BRIEF ME" Clicked="OnBriefClicked" BackgroundColor="#10283B" BorderColor="#1C526B" BorderWidth="1" TextColor="#BEEBFA" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
-                    <Button Grid.Column="2" Text="⌁  SYSTEMS" Clicked="OnSystemsClicked" BackgroundColor="#10283B" BorderColor="#1C526B" BorderWidth="1" TextColor="#BEEBFA" FontAttributes="Bold" FontSize="12" CornerRadius="14" HeightRequest="50" />
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="12">

@@ -31,10 +31,9 @@ public partial class MainPage : ContentPage
 
     private void UpdateClock() => TimeLabel.Text = DateTime.Now.ToString("HH:mm");
 
-    private async void OnListenClicked(object? sender, EventArgs e)
+    private async void OnFridayOrbClicked(object? sender, EventArgs e)
     {
-        ListenButton.IsEnabled = false;
-        ListenButton.Text = "◉  LISTENING";
+        FridayOrb.IsEnabled = false;
         AssistantResponse.Text = "Listening…";
         ActivityLabel.Text = "Speak your command after the prompt";
 
@@ -48,32 +47,42 @@ public partial class MainPage : ContentPage
                 return;
             }
 
-            CommandEntry.Text = result.Transcript;
             ActivityLabel.Text = $"Voice command: {result.Transcript}";
-            await SendToFridayAsync(result.Transcript);
+            await SendToFridayAsync(result.Transcript, speakResponse: true);
         }
         finally
         {
-            ListenButton.IsEnabled = true;
-            ListenButton.Text = "◉  LISTEN";
+            FridayOrb.IsEnabled = true;
         }
     }
 
-    private async void OnBriefClicked(object? sender, EventArgs e) => await SendToFridayAsync("Give me a concise daily briefing based on the information you have. Be direct and helpful.");
-
-    private async void OnSystemsClicked(object? sender, EventArgs e) => await SendToFridayAsync("Give me a concise system-status acknowledgement. Do not claim you can access hardware you cannot access.");
-
-    private async void OnCommandSubmitted(object? sender, EventArgs e)
+    private async void OnSettingsClicked(object? sender, EventArgs e)
     {
-        var command = CommandEntry.Text?.Trim();
-        if (string.IsNullOrWhiteSpace(command))
+        var handsFreeOption = HandsFreeAssistant.IsEnabled ? "Disable hands-free mode" : "Enable hands-free mode";
+        var action = await DisplayActionSheetAsync("Friday settings", "Cancel", null, "Gemini API key", handsFreeOption);
+        if (action == "Cancel" || string.IsNullOrWhiteSpace(action))
             return;
 
-        CommandEntry.Text = string.Empty;
-        await SendToFridayAsync(command);
+        if (action == "Enable hands-free mode")
+        {
+            var result = await HandsFreeAssistant.EnableAsync();
+            AssistantResponse.Text = result.Message;
+            ActivityLabel.Text = result.IsActive ? "Hands-free assistant mode enabled" : "Android assistant approval required";
+            return;
+        }
+
+        if (action == "Disable hands-free mode")
+        {
+            HandsFreeAssistant.Disable();
+            AssistantResponse.Text = "Hands-free mode is off. Friday is no longer listening in the background.";
+            ActivityLabel.Text = "Hands-free assistant mode disabled";
+            return;
+        }
+
+        await ConfigureGeminiKeyAsync();
     }
 
-    private async void OnSettingsClicked(object? sender, EventArgs e)
+    private async Task ConfigureGeminiKeyAsync()
     {
         var currentKey = await SecureStorage.Default.GetAsync(ApiKeyName);
         var title = string.IsNullOrEmpty(currentKey) ? "Connect Gemini" : "Replace Gemini key";
@@ -88,7 +97,7 @@ public partial class MainPage : ContentPage
         ActivityLabel.Text = "API key saved securely on this device";
     }
 
-    private async Task SendToFridayAsync(string prompt)
+    private async Task SendToFridayAsync(string prompt, bool speakResponse = false)
     {
         var apiKey = await SecureStorage.Default.GetAsync(ApiKeyName);
         if (string.IsNullOrWhiteSpace(apiKey))
@@ -106,6 +115,8 @@ public partial class MainPage : ContentPage
             AssistantResponse.Text = response;
             ActivityLabel.Text = "Response received from Gemini";
             SemanticScreenReader.Announce(response);
+            if (speakResponse)
+                await _voiceCommands.SpeakAsync(response);
         }
         catch (GeminiRequestException ex)
         {
