@@ -44,6 +44,7 @@ microsoft.maui.controls.platform.compatibility.ShellFlyoutLayout;/Users/sarthakt
 monochrome;obj/Debug/net10.0-android/resizetizer/r/mipmap-anydpi-v26/appicon_round.xml
 monochrome;obj/Debug/net10.0-android/resizetizer/r/mipmap-anydpi-v26/appicon.xml
 paths;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/166/jl/res/xml/microsoft_maui_essentials_fileprovider_file_paths.xml
+recognition-service;obj/Debug/net10.0-android/res/xml/friday_recognition_service.xml
 resources;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/163/jl/res/values/strings.xml
 resources;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/164/jl/res/values/values.xml
 resources;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/165/jl/res/values/attr.xml
@@ -75,3 +76,4 @@ translate;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.
 translate;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/165/jl/res/anim/nav_default_pop_exit_anim.xml
 translate;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/165/jl/res/anim/nav_modal_default_enter_anim.xml
 translate;/Users/sarthakthakur/Desktop/My Projects/Repos/Friday/obj/Debug/net10.0-android/lp/165/jl/res/anim/nav_modal_default_exit_anim.xml
+voice-interaction-service;obj/Debug/net10.0-android/res/xml/friday_voice_interaction.xml

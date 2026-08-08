@@ -7,6 +7,21 @@
         <member name="T:Friday.GeminiAssistantService">
             <summary>Small Gemini REST client kept separate from the UI so it can later be replaced by a backend proxy.</summary>
         </member>
+        <member name="T:Friday.HandsFreeAssistant">
+            <summary>Controls the user's opt-in Android Assistant mode. It never enables background listening by default.</summary>
+        </member>
+        <member name="T:Friday.FridayVoiceInteractionService">
+            <summary>
+            Android keeps the selected VoiceInteractionService alive. This service recognizes a phrase beginning
+            with “Friday”, forwards the remainder to Gemini, and speaks the reply without opening the app UI.
+            </summary>
+        </member>
+        <member name="T:Friday.FridayRecognitionService">
+            <summary>
+            Declared so Android can recognise Friday as a complete voice-assistant provider.
+            Wake-phrase recognition itself is handled by FridayVoiceInteractionService.
+            </summary>
+        </member>
         <member name="T:Friday.VoiceCommandService">
             <summary>Captures one spoken command using the operating system's speech recognizer.</summary>
         </member>
